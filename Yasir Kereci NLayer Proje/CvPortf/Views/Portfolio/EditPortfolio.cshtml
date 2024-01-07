@@ -1,0 +1,44 @@
+﻿@model EntityLayer.Concrete.Portfolio
+@{
+    ViewData["Title"] = "EditPortfolio";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("EditPortfolio", "Portfolio", FormMethod.Post))
+{
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h2>Proje Düzenleme Sayfası</h2>
+                <form class="forms-sample">
+                    @Html.HiddenFor(x => x.PortfolioID)
+                    <br />
+                    @Html.Label("Proje Adı")
+                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                    <br />
+                    <label>Fiyat</label>
+                    @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+                    <br />
+                    <label>Durum</label>
+                    @Html.TextBoxFor(x => x.Status, new { @class = "form-control" })
+                    <br />
+                    <label>Tamamlanma Yüzdesi</label>
+                    @Html.TextBoxFor(x => x.Value, new { @class = "form-control" })
+                    <br />
+                    <label>Görsel 1 </label>
+                    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+                    <br />
+                    <label>Görsel 2 </label>
+                    @Html.TextBoxFor(x => x.ImageUrl2, new { @class = "form-control" })
+                    <br />
+                    <label>Platform</label>
+                    @Html.TextBoxFor(x => x.Platform, new { @class = "form-control" })
+                    <br />
+                    <button class="btn btn-success">Güncelle</button>
+                    <a asp-action="Index" asp-controller="Portfolio" class="btn btn-dark">İptal</a>
+                </form>
+            </div>
+        </div>
+    </div>
+}
+
